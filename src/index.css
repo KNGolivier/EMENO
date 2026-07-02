@@ -98,13 +98,13 @@ h1, h2, h3, h4 {
   flex-direction: column;
   /* Supprimez overflow: visible qui peut court-circuiter le scroll */
   /* Ajoutez ceci pour forcer le conteneur à accepter le scroll */
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* Assurer que le conteneur principal laisse le contenu défiler */
 #root > main {
   flex: 1 0 auto; /* Permet au contenu de pousser le conteneur */
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* Forcer le défilement sur les appareils tactiles */
