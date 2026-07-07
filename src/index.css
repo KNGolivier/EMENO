@@ -113,7 +113,7 @@ h1, h2, h3, h4 {
 /* Forcer le défilement sur les appareils tactiles */
 html, body {
   -webkit-overflow-scrolling: touch;
-  overscroll-behavior-y: none; /* Empêche le "pull-to-refresh" parasite de Safari si nécessaire */
+  /* overscroll-behavior-y: none; Empêche le "pull-to-refresh" parasite de Safari si nécessaire */
 }
 
 /* Utilitaires de cartes pour éviter la répétition dans le JSX */
