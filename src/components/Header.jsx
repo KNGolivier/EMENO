@@ -148,7 +148,7 @@ export default function Header({
 
       {/* RIGHT */}
 
-      <div className="flex items-center gap-2 lg:gap-4 flex-[1_1_auto] justify-end min-w-0 bg-red">
+      <div className="flex items-center gap-2 lg:gap-4 flex-[1_1_auto] justify-end min-w-0 bg-secondary">
         <div className="flex items-center gap-2 shrink-0">
           {/* THEME */}
 
