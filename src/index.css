@@ -55,6 +55,7 @@
    ========================================================================== */
 html, body {
   height: 100%;
+  margin: 0 auto;
   overflow-x: hidden; /* Empêche le scroll horizontal parasite */
   overflow-y: auto;   /* Force l'apparition du scroll vertical si le contenu dépasse */
   -webkit-overflow-scrolling: touch; /* Rend le scroll ultra-fluide et élastique sur iOS/Android */
