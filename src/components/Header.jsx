@@ -100,7 +100,7 @@ export default function Header({
 
   return (
     <header className="
-      h-20 lg:h-24 w-[100%]
+      h-20 lg:h-24 w-[100vh]
       sticky top-0 z-[90]
       flex items-center justify-between
       px-4 lg:px-10
