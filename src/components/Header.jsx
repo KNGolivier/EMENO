@@ -113,7 +113,7 @@ export default function Header({
     ">
 
       {/* LEFT */}
-      <div className="flex items-center gap-3 flex-1">
+      <div className="flex items-center gap-3 flex-1 shrink-0">
 
         {/* MOBILE MENU */}
         <button
@@ -148,349 +148,350 @@ export default function Header({
 
       {/* RIGHT */}
 
-      <div className="flex items-center gap-2 lg:gap-4 relative">
-
-        {/* THEME */}
-
-        <button
-          onClick={toggleTheme}
-          title={
-            isDarkMode
-              ? "Mode clair"
-              : "Mode sombre"
-          }
-          className="
-            w-12 h-12
-            rounded-2xl
-            flex items-center justify-center
-            bg-slate-100 dark:bg-white/[0.05]
-            border border-transparent dark:border-white/[0.05]
-            text-slate-500 dark:text-yellow-400
-            hover:bg-slate-200 dark:hover:bg-white/[0.08]
-            transition-all
-            active:scale-90
-          "
-        >
-          {isDarkMode ? (
-            <Sun
-              size={20}
-              strokeWidth={2.5}
-            />
-          ) : (
-            <Moon
-              size={20}
-              strokeWidth={2.5}
-            />
-          )}
-        </button>
-
-        {/* NOTIFICATIONS */}
-
-        <div className="relative">
+      <div className="flex items-center gap-2 lg:gap-4 relative min-w-0">
+        <div className="flex items-center gap-2 shrink-0">
+          {/* THEME */}
 
           <button
-            onClick={() => {
-              setOpenNotif(!openNotif);
-
-              if (!openNotif) {
-                markAllAsRead();
-              }
-            }}
-            className={`
-              relative
+            onClick={toggleTheme}
+            title={
+              isDarkMode
+                ? "Mode clair"
+                : "Mode sombre"
+            }
+            className="
               w-12 h-12
               rounded-2xl
               flex items-center justify-center
-              transition-all duration-300
-
-              ${
-                openNotif
-                  ? "bg-secondary text-white shadow-xl shadow-secondary/20"
-                  : "bg-slate-100 dark:bg-white/[0.05] text-slate-500 dark:text-white hover:bg-slate-200 dark:hover:bg-white/[0.08]"
-              }
-            `}
+              bg-slate-100 dark:bg-white/[0.05]
+              border border-transparent dark:border-white/[0.05]
+              text-slate-500 dark:text-yellow-400
+              hover:bg-slate-200 dark:hover:bg-white/[0.08]
+              transition-all
+              active:scale-90
+            "
           >
-            <Bell
-              size={20}
-              strokeWidth={2.5}
-            />
-
-            {unreadCount > 0 && (
-              <span className="
-                absolute -top-1 -right-1
-                min-w-[20px] h-5
-                px-1
-                flex items-center justify-center
-                rounded-full
-                bg-rose-500
-                text-white
-                text-[10px]
-                font-black
-                ring-2
-                ring-white dark:ring-primary
-              ">
-                {unreadCount}
-              </span>
+            {isDarkMode ? (
+              <Sun
+                size={20}
+                strokeWidth={2.5}
+              />
+            ) : (
+              <Moon
+                size={20}
+                strokeWidth={2.5}
+              />
             )}
           </button>
 
-          {/* DROPDOWN */}
+          {/* NOTIFICATIONS */}
 
-          {openNotif && (
+          <div className="relative">
 
-            <div className="
-              fixed sm:absolute
-              right-4 sm:right-0
-              top-20 sm:top-16
-              w-[calc(100vw-2rem)]
-              sm:w-[380px]
-              overflow-hidden
-              rounded-[2rem]
-              border
-              border-slate-200 dark:border-white/[0.06]
-              bg-white/95 dark:bg-primary/95
-              backdrop-blur-2xl
-              shadow-2xl
-              z-[120]
-              animate-in fade-in slide-in-from-top-2 duration-300
-            ">
+            <button
+              onClick={() => {
+                setOpenNotif(!openNotif);
 
-              {/* HEADER */}
+                if (!openNotif) {
+                  markAllAsRead();
+                }
+              }}
+              className={`
+                relative
+                w-12 h-12
+                rounded-2xl
+                flex items-center justify-center
+                transition-all duration-300
 
-              <div className="
-                flex items-center justify-between
-                p-5
-                border-b
-                border-slate-100 dark:border-white/[0.06]
-                bg-slate-50/80 dark:bg-white/[0.03]
-              ">
+                ${
+                  openNotif
+                    ? "bg-secondary text-white shadow-xl shadow-secondary/20"
+                    : "bg-slate-100 dark:bg-white/[0.05] text-slate-500 dark:text-white hover:bg-slate-200 dark:hover:bg-white/[0.08]"
+                }
+              `}
+            >
+              <Bell
+                size={20}
+                strokeWidth={2.5}
+              />
 
-                <div>
-
-                  <h4 className="
-                    text-[10px]
-                    font-black
-                    uppercase
-                    tracking-[0.2em]
-                    text-primary
-                  ">
-                    Notifications
-                  </h4>
-
-                  <p className="
-                    mt-1
-                    text-[9px]
-                    uppercase
-                    tracking-[0.18em]
-                    text-slate-400
-                    font-bold
-                  ">
-                    Flux en temps réel
-                  </p>
-
-                </div>
-
-                <div className="
-                  px-3 py-1
+              {unreadCount > 0 && (
+                <span className="
+                  absolute -top-1 -right-1
+                  min-w-[20px] h-5
+                  px-1
+                  flex items-center justify-center
                   rounded-full
-                  bg-secondary/10
-                  text-secondary
+                  bg-rose-500
+                  text-white
                   text-[10px]
                   font-black
+                  ring-2
+                  ring-white dark:ring-primary
                 ">
-                  {validNotifications.length}
-                </div>
+                  {unreadCount}
+                </span>
+              )}
+            </button>
 
-              </div>
+            {/* DROPDOWN */}
 
-              {/* LIST */}
+            {openNotif && (
 
               <div className="
-                max-h-[360px]
-                overflow-y-auto
-                p-2
-                space-y-1
+                fixed sm:absolute
+                right-4 sm:right-0
+                top-20 sm:top-16
+                w-[calc(100vw-2rem)]
+                sm:w-[380px]
+                overflow-hidden
+                rounded-[2rem]
+                border
+                border-slate-200 dark:border-white/[0.06]
+                bg-white/95 dark:bg-primary/95
+                backdrop-blur-2xl
+                shadow-2xl
+                z-[120]
+                animate-in fade-in slide-in-from-top-2 duration-300
               ">
 
-                {validNotifications.length ===
-                0 ? (
+                {/* HEADER */}
 
-                  <div className="
-                    py-14 px-6
-                    text-center
-                  ">
+                <div className="
+                  flex items-center justify-between
+                  p-5
+                  border-b
+                  border-slate-100 dark:border-white/[0.06]
+                  bg-slate-50/80 dark:bg-white/[0.03]
+                ">
 
-                    <Bell
-                      size={30}
-                      className="
-                        mx-auto
-                        text-slate-300 dark:text-white/20
-                      "
-                    />
+                  <div>
 
-                    <p className="
-                      mt-4
+                    <h4 className="
                       text-[10px]
+                      font-black
                       uppercase
                       tracking-[0.2em]
-                      font-black
-                      text-slate-400
+                      text-primary
                     ">
-                      Aucune notification
+                      Notifications
+                    </h4>
+
+                    <p className="
+                      mt-1
+                      text-[9px]
+                      uppercase
+                      tracking-[0.18em]
+                      text-slate-400
+                      font-bold
+                    ">
+                      Flux en temps réel
                     </p>
 
                   </div>
 
-                ) : (
+                  <div className="
+                    px-3 py-1
+                    rounded-full
+                    bg-secondary/10
+                    text-secondary
+                    text-[10px]
+                    font-black
+                  ">
+                    {validNotifications.length}
+                  </div>
 
-                  validNotifications
-                    .slice(0, 6)
-                    .map((n, idx) => {
+                </div>
 
-                      const deliveryId =
-                        n.deliveryId ||
-                        n.data?.deliveryId;
+                {/* LIST */}
 
-                      return (
+                <div className="
+                  max-h-[360px]
+                  overflow-y-auto
+                  p-2
+                  space-y-1
+                ">
 
-                        <Link
-                          key={idx}
-                          to={
-                            user.role ===
-                            "CLIENT"
-                              ? `/client/orders/${deliveryId}`
-                              : user.role ===
-                                "DRIVER"
-                              ? `/driver/deliveries`
-                              : `/admin/deliveries/${deliveryId}`
-                          }
-                          onClick={() =>
-                            setOpenNotif(false)
-                          }
-                          className="
-                            group
-                            flex gap-4
-                            rounded-[1.5rem]
-                            p-4
-                            hover:bg-slate-50 dark:hover:bg-white/[0.04]
-                            transition-all
-                          "
-                        >
+                  {validNotifications.length ===
+                  0 ? (
 
-                          {/* ICON */}
+                    <div className="
+                      py-14 px-6
+                      text-center
+                    ">
 
-                          <div className="
-                            shrink-0
-                            w-11 h-11
-                            rounded-2xl
-                            flex items-center justify-center
-                            bg-slate-100 dark:bg-white/[0.05]
-                            text-slate-400
-                            group-hover:bg-secondary/10
-                            group-hover:text-secondary
-                            transition-all
-                          ">
-                            {getNotifIcon(
-                              n.message
-                            )}
-                          </div>
+                      <Bell
+                        size={30}
+                        className="
+                          mx-auto
+                          text-slate-300 dark:text-white/20
+                        "
+                      />
 
-                          {/* CONTENT */}
+                      <p className="
+                        mt-4
+                        text-[10px]
+                        uppercase
+                        tracking-[0.2em]
+                        font-black
+                        text-slate-400
+                      ">
+                        Aucune notification
+                      </p>
 
-                          <div className="flex-1 min-w-0">
+                    </div>
 
-                            <p className="
-                              text-[11px]
-                              font-bold
-                              leading-relaxed
-                              text-primary
-                              line-clamp-2
-                            ">
-                              {n.message ||
-                                "Nouvelle notification"}
-                            </p>
+                  ) : (
+
+                    validNotifications
+                      .slice(0, 6)
+                      .map((n, idx) => {
+
+                        const deliveryId =
+                          n.deliveryId ||
+                          n.data?.deliveryId;
+
+                        return (
+
+                          <Link
+                            key={idx}
+                            to={
+                              user.role ===
+                              "CLIENT"
+                                ? `/client/orders/${deliveryId}`
+                                : user.role ===
+                                  "DRIVER"
+                                ? `/driver/deliveries`
+                                : `/admin/deliveries/${deliveryId}`
+                            }
+                            onClick={() =>
+                              setOpenNotif(false)
+                            }
+                            className="
+                              group
+                              flex gap-4
+                              rounded-[1.5rem]
+                              p-4
+                              hover:bg-slate-50 dark:hover:bg-white/[0.04]
+                              transition-all
+                            "
+                          >
+
+                            {/* ICON */}
 
                             <div className="
-                              mt-2
-                              flex items-center gap-2
+                              shrink-0
+                              w-11 h-11
+                              rounded-2xl
+                              flex items-center justify-center
+                              bg-slate-100 dark:bg-white/[0.05]
+                              text-slate-400
+                              group-hover:bg-secondary/10
+                              group-hover:text-secondary
+                              transition-all
                             ">
+                              {getNotifIcon(
+                                n.message
+                              )}
+                            </div>
 
-                              <span className="
-                                text-[8px]
-                                uppercase
-                                tracking-[0.18em]
-                                font-black
-                                text-secondary
+                            {/* CONTENT */}
+
+                            <div className="flex-1 min-w-0">
+
+                              <p className="
+                                text-[11px]
+                                font-bold
+                                leading-relaxed
+                                text-primary
+                                line-clamp-2
                               ">
-                                Voir détails
-                              </span>
+                                {n.message ||
+                                  "Nouvelle notification"}
+                              </p>
 
-                              <ChevronRight
-                                size={11}
-                                className="
+                              <div className="
+                                mt-2
+                                flex items-center gap-2
+                              ">
+
+                                <span className="
+                                  text-[8px]
+                                  uppercase
+                                  tracking-[0.18em]
+                                  font-black
                                   text-secondary
-                                  opacity-0
-                                  -translate-x-2
-                                  group-hover:opacity-100
-                                  group-hover:translate-x-0
-                                  transition-all
-                                "
-                              />
+                                ">
+                                  Voir détails
+                                </span>
+
+                                <ChevronRight
+                                  size={11}
+                                  className="
+                                    text-secondary
+                                    opacity-0
+                                    -translate-x-2
+                                    group-hover:opacity-100
+                                    group-hover:translate-x-0
+                                    transition-all
+                                  "
+                                />
+
+                              </div>
 
                             </div>
 
-                          </div>
+                          </Link>
 
-                        </Link>
+                        );
+                      })
 
-                      );
-                    })
+                  )}
 
-                )}
+                </div>
+
+                {/* FOOTER LINK */}
+
+                <div className="
+                  p-3
+                  border-t
+                  border-slate-100 dark:border-white/[0.06]
+                  bg-slate-50/50 dark:bg-white/[0.02]
+                ">
+
+                  <Link
+                    to={notificationRoute}
+                    onClick={() =>
+                      setOpenNotif(false)
+                    }
+                    className="
+                      flex items-center justify-center gap-2
+                      w-full
+                      rounded-2xl
+                      px-4 py-3
+                      bg-primary dark:bg-secondary
+                      text-white
+                      text-[10px]
+                      font-black
+                      uppercase
+                      tracking-[0.18em]
+                      hover:scale-[1.01]
+                      active:scale-[0.98]
+                      transition-all
+                    "
+                  >
+                    Voir toutes les notifications
+
+                    <ExternalLink size={14} />
+                  </Link>
+
+                </div>
 
               </div>
 
-              {/* FOOTER LINK */}
+            )}
 
-              <div className="
-                p-3
-                border-t
-                border-slate-100 dark:border-white/[0.06]
-                bg-slate-50/50 dark:bg-white/[0.02]
-              ">
-
-                <Link
-                  to={notificationRoute}
-                  onClick={() =>
-                    setOpenNotif(false)
-                  }
-                  className="
-                    flex items-center justify-center gap-2
-                    w-full
-                    rounded-2xl
-                    px-4 py-3
-                    bg-primary dark:bg-secondary
-                    text-white
-                    text-[10px]
-                    font-black
-                    uppercase
-                    tracking-[0.18em]
-                    hover:scale-[1.01]
-                    active:scale-[0.98]
-                    transition-all
-                  "
-                >
-                  Voir toutes les notifications
-
-                  <ExternalLink size={14} />
-                </Link>
-
-              </div>
-
-            </div>
-
-          )}
-
+          </div>
         </div>
 
         {/* PROFILE */}
