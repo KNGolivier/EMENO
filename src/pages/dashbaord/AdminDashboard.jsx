@@ -272,14 +272,16 @@ export default function AdminDashboard() {
           </p>
         </div>
 
-        {/* PÉRIODE FILTERS */}
-        <div className="flex gap-2 overflow-x-auto pb-4 scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
-          <div className="flex bg-slate-200/50 dark:bg-white/5 p-1.5 rounded-2xl border border-slate-200 dark:border-white/5 backdrop-blur-md shadow-sm whitespace-nowrap">
+        {/* PÉRIODE FILTERS : Conteneur de contrôle du scroll */}
+        <div className="w-full overflow-x-auto scrollbar-hide -mx-4 px-4 md:mx-0 md:px-0">
+          
+          {/* Conteneur des boutons : Utilise 'w-max' pour que les éléments dictent la largeur sans dépasser */}
+          <div className="flex w-max bg-slate-200/50 dark:bg-white/5 p-1.5 rounded-2xl border border-slate-200 dark:border-white/5 backdrop-blur-md shadow-sm">
             {["TODAY", "WEEK", "MONTH", "YEAR"].map((p) => (
               <button
                 key={p}
                 onClick={() => setPeriod(p)}
-                className={`px-6 py-2.5 rounded-xl text-[10px] font-black tracking-widest transition-all active:scale-95 ${
+                className={`px-6 py-2.5 rounded-xl text-[10px] font-black tracking-widest transition-all active:scale-95 whitespace-nowrap ${
                   period === p 
                     ? "bg-primary dark:bg-secondary text-white shadow-lg" 
                     : "text-slate-500 dark:text-slate-400 hover:text-primary dark:hover:text-white"
