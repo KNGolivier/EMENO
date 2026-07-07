@@ -40,7 +40,7 @@ export default function PartnerLayout() {
 
   if (loadingPartner) {
     return (
-      <div className="bg-slate-50 dark:bg-slate-950 flex items-center justify-center">
+      <div className="h-full bg-slate-50 dark:bg-slate-950 flex items-center justify-center">
         <div className="text-center space-y-4">
           <div className="w-12 h-12 border-4 border-secondary border-t-transparent rounded-full animate-spin mx-auto" />
           <p className="text-[10px] font-black uppercase tracking-widest text-slate-400">Initialisation de l'espace commerce...</p>
@@ -50,7 +50,7 @@ export default function PartnerLayout() {
   }
 
   return (
-    <div className="bg-slate-50 dark:bg-slate-950 flex transition-colors duration-300">
+    <div className="h-full bg-slate-50 dark:bg-slate-950 flex transition-colors duration-300">
       <Sidebar isOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
 
       <div className="flex-1 flex flex-col min-h-screen relative md:ml-72 lg:ml-72">

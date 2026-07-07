@@ -53,18 +53,11 @@
 /* ==========================================================================
    GLOBAL STYLES
    ========================================================================== */
-
-* { outline: 1px solid red !important; }
-
 html, body {
-  width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  /* Le scroll doit être autorisé sur le body */
-  overflow-y: auto;
-  overflow-x: hidden;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden; /* Empêche le scroll horizontal parasite */
+  overflow-y: auto;   /* Force l'apparition du scroll vertical si le contenu dépasse */
+  -webkit-overflow-scrolling: touch; /* Rend le scroll ultra-fluide et élastique sur iOS/Android */
 }
 
 body {
@@ -99,24 +92,25 @@ h1, h2, h3, h4 {
 }
 
 #root {
-  /* On retire min-height 100vh/svh qui piège le scroll */
-  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
   display: flex;
   flex-direction: column;
-  /* On laisse root prendre la hauteur nécessaire à son contenu */
-  min-height: 100%; 
+  /* Supprimez overflow: visible qui peut court-circuiter le scroll */
+  /* Ajoutez ceci pour forcer le conteneur à accepter le scroll */
+  /* width: 100%; */
 }
 
 /* Assurer que le conteneur principal laisse le contenu défiler */
 #root > main {
   flex: 1 0 auto; /* Permet au contenu de pousser le conteneur */
-  width: 100%;
+  /* width: 100%; */
 }
 
 /* Forcer le défilement sur les appareils tactiles */
 html, body {
   -webkit-overflow-scrolling: touch;
-  /* overscroll-behavior-y: none; Empêche le "pull-to-refresh" parasite de Safari si nécessaire */
+  overscroll-behavior-y: none; /* Empêche le "pull-to-refresh" parasite de Safari si nécessaire */
 }
 
 /* Utilitaires de cartes pour éviter la répétition dans le JSX */

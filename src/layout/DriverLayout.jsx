@@ -108,7 +108,7 @@ export default function DriverLayout() {
   };
 
   return (
-    <div className="bg-slate-50 dark:bg-[#0B1120] pb-32 transition-colors duration-300">
+    <div className="h-full bg-slate-50 dark:bg-[#0B1120] pb-32 transition-colors duration-300">
       
       {/* --- HEADER --- */}
       <header className="h-24 bg-white/90 dark:bg-slate-900/90 border-b border-slate-100 dark:border-slate-800/50 flex items-center justify-between px-6 sticky top-0 z-[60] backdrop-blur-xl">
