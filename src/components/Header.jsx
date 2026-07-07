@@ -113,7 +113,7 @@ export default function Header({
     ">
 
       {/* LEFT */}
-      <div className="flex items-center gap-3 flex-[0_1_auto]">
+      <div className="flex items-center gap-3 flex-[0_1_auto] bg-white">
 
         {/* MOBILE MENU */}
         <button
@@ -148,7 +148,7 @@ export default function Header({
 
       {/* RIGHT */}
 
-      <div className="flex items-center gap-2 lg:gap-4 flex-[1_1_auto] justify-end min-w-0">
+      <div className="flex items-center gap-2 lg:gap-4 flex-[1_1_auto] justify-end min-w-0 bg-red">
         <div className="flex items-center gap-2 shrink-0">
           {/* THEME */}
 
