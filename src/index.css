@@ -54,15 +54,10 @@
    GLOBAL STYLES
    ========================================================================== */
 html, body {
-  width: 100%;
   height: 100%;
-  margin: 0;
-  padding: 0;
-  /* Indispensable pour empêcher le contenu de dépasser sur les côtés */
-  overflow-x: hidden; 
-  /* Le scroll vertical est géré ici */
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden; /* Empêche le scroll horizontal parasite */
+  overflow-y: auto;   /* Force l'apparition du scroll vertical si le contenu dépasse */
+  -webkit-overflow-scrolling: touch; /* Rend le scroll ultra-fluide et élastique sur iOS/Android */
 }
 
 body {
@@ -97,21 +92,13 @@ h1, h2, h3, h4 {
 }
 
 #root {
-  /* On s'assure que root prend toute la largeur et au moins la hauteur de l'écran */
-  width: 100%;
   min-height: 100vh;
   min-height: 100svh;
   display: flex;
   flex-direction: column;
-  /* Empêche les éléments enfants de déborder */
-  overflow-x: hidden; 
-}
-
-/* Force le conteneur principal à laisser le contenu se déployer naturellement */
-main {
-  flex: 1;
-  width: 100%; /* S'assure que main ne dépasse pas */
-  min-height: min-content;
+  /* Supprimez overflow: visible qui peut court-circuiter le scroll */
+  /* Ajoutez ceci pour forcer le conteneur à accepter le scroll */
+  /* width: 100%; */
 }
 
 /* Assurer que le conteneur principal laisse le contenu défiler */
