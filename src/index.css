@@ -54,11 +54,14 @@
    GLOBAL STYLES
    ========================================================================== */
 html, body {
+  width: 100%;
   height: 100%;
-  margin: 0 auto;
-  overflow-x: hidden; /* Empêche le scroll horizontal parasite */
-  overflow-y: auto;   /* Force l'apparition du scroll vertical si le contenu dépasse */
-  -webkit-overflow-scrolling: touch; /* Rend le scroll ultra-fluide et élastique sur iOS/Android */
+  margin: 0;
+  padding: 0;
+  /* Crucial pour empêcher le contenu de forcer une largeur > 100% */
+  overflow-x: hidden; 
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 body {
@@ -93,13 +96,12 @@ h1, h2, h3, h4 {
 }
 
 #root {
-  min-height: 100vh;
-  min-height: 100svh;
+  width: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
-  /* Supprimez overflow: visible qui peut court-circuiter le scroll */
-  /* Ajoutez ceci pour forcer le conteneur à accepter le scroll */
-  /* width: 100%; */
+  /* On force le root à ne pas déborder non plus */
+  overflow-x: hidden;
 }
 
 /* Assurer que le conteneur principal laisse le contenu défiler */
