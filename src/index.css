@@ -60,26 +60,26 @@
     box-sizing: border-box;
   }
 
-/* html, body {
+html, body {
   width: 100%;
-  height: 100%; */
+  height: 100%;
   /* Crucial pour empêcher le contenu de forcer une largeur > 100% */
-  /* overflow-x: hidden; 
+  overflow-x: hidden; 
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-} */
+}
 
-html, body {
-  /* Utilisez 'svh' (Small Viewport Height) pour mobile, c'est la norme actuelle */
+/* html, body {
+  Utilisez 'svh' (Small Viewport Height) pour mobile, c'est la norme actuelle
   height: 100%;
   height: 100svh; 
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  /* On laisse le scroll vertical se gérer naturellement */
+  On laisse le scroll vertical se gérer naturellement
   overflow-y: auto; 
   background-color: var(--bg-app);
-}
+} */
 
 body {
   background-color: var(--bg-app);
