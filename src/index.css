@@ -54,7 +54,6 @@
    GLOBAL STYLES
    ========================================================================== */
 * { outline: 1px solid red !important; }
-body { outline: 1px solid blue !important; }
 
 html, body {
   width: 100%;
