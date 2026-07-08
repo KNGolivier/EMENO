@@ -50,13 +50,13 @@ export default function PartnerLayout() {
   }
 
   return (
-    <div className="h-full bg-slate-50 dark:bg-slate-950 flex transition-colors duration-300">
+    <div className="h-screen w-full bg-slate-50 dark:bg-slate-950 flex transition-colors duration-300 overflow-hidden">
       <Sidebar isOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <div className="flex-1 flex flex-col h-full relative md:ml-72 lg:ml-72 min-w-0">
+      <div className="flex-1 flex flex-col h-full relative md:ml-72 lg:ml-72 min-w-0 overflow-hidden">
         <Header toggleSidebar={() => setSidebarOpen(true)} />
         
-        <main className="p-4 lg:p-8 max-w-[1600px] mx-auto w-full text-slate-900 dark:text-slate-100 transition-colors">
+        <main className="flex-1 overflow-y-auto overflow-x-hidden p-4 lg:p-8 max-w-[1600px] mx-auto w-full text-slate-900 dark:text-slate-100 transition-colors">
           {/* On passe le profil utilisateur et la fiche partenaire hydratée à travers le contexte de l'outlet */}
           <Outlet context={{ currentUser: user, currentPartner: partnerData }} />
         </main>
