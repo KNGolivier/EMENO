@@ -10,12 +10,12 @@ export default function AdminLayout() {
 
   return (
     // bg-main-app applique les gradients radiaux définis dans index.css
-    <div className="h-full bg-main-app flex transition-colors duration-300 max-w-[100vw]">
+    <div className="h-full bg-main-app flex transition-colors duration-300">
       
       {/* Sidebar : Adaptée au thème via ses propres classes dark: */}
       <Sidebar isOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <div className="flex-1 flex flex-col min-h-screen relative md:ml-72 lg:ml-72">
+      <div className="flex-1 flex flex-col min-h-screen relative md:ml-72 lg:ml-72 min-w-0">
         {/* Header : Contient le toggle de thème */}
         <Header toggleSidebar={() => setSidebarOpen(true)} />
         
