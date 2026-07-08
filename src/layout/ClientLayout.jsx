@@ -14,7 +14,7 @@ export default function ClientLayout() {
       {/* Sidebar */}
       <Sidebar isOpen={isSidebarOpen} onClose={() => setSidebarOpen(false)} />
 
-      <div className="flex-1 flex flex-col min-h-screen relative md:ml-72 lg:ml-72">
+      <div className="flex-1 flex flex-col min-h-screen relative md:ml-72 lg:ml-72 min-w-0">
         {/* Header */}
         <Header toggleSidebar={() => setSidebarOpen(true)} />
         
