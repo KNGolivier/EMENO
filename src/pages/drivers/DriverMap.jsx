@@ -102,7 +102,10 @@ export default function DriverMap() {
       <div className="relative h-[60vh] w-full rounded-[3rem] overflow-hidden shadow-2xl z-10">
         <MapContainer center={LIBREVILLE_CENTER} zoom={12} style={{ height: "100%", width: "100%" }} zoomControl={false}>
           <ChangeView center={LIBREVILLE_CENTER} />
-          <TileLayer url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png" />
+          <TileLayer 
+            url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+            attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          />
           {drivers.map((item) => {
             if (!item.location?.coordinates) return null;
             const position = [item.location.coordinates[1], item.location.coordinates[0]];

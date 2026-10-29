@@ -526,9 +526,9 @@ export default function AdminDashboard() {
               zoomControl={false}
             >
               <ChangeView center={LIBREVILLE_CENTER} />
-              <TileLayer
-                attribution='&copy; CARTO'
-                url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+              <TileLayer 
+                url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               />
               {drivers.map((item) => {
                 if (!item.location?.coordinates) return null;
