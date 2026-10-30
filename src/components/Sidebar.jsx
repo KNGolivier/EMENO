@@ -219,7 +219,7 @@ export default function Sidebar({ isOpen, onClose }) {
         
         {/* 2. shrink-0 empêche le header de rétrécir même si le contenu nav est long */}
         <div className="flex justify-between items-center mb-10 px-2 shrink-0">
-          <img src={isDarkMode ? "/logo.png" : "/logo-dark.png"} alt="EMENO" className="h-16 w-auto object-contain" />
+          <img src={isDarkMode ? "/logo.png" : "/logo-dark.jpg"} alt="EMENO" className="h-16 w-auto object-contain" />
           <button onClick={onClose} className="lg:hidden p-2 text-slate-400 hover:bg-slate-100 dark:hover:bg-white/10 rounded-xl transition-all">
             <X size={24} />
           </button>
